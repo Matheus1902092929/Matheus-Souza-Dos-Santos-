@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Aniversário 🎂</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(-45deg, #ff758c, #ff7eb3, #ffb199, #ff0844);
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite;
+    color: white;
+    overflow: hidden;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 40px;
+    animation: brilho 2s infinite alternate;
+}
+
+@keyframes brilho {
+    from { text-shadow: 0 0 10px white; }
+    to { text-shadow: 0 0 25px yellow; }
+}
+
+h2 {
+    margin-top: 10px;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+audio {
+    margin-top: 25px;
+}
+
+/* Corações caindo */
+.heart {
+    position: absolute;
+    top: -10px;
+    font-size: 20px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🎂 Feliz Aniversário, My Darling Fernanda 🎂</h1>
+    <h2>De Matheus Souza 💌</h2>
+
+    <p>
+        Que seu dia seja tão lindo quanto o seu sorriso.<br>
+        Que cada sonho seu se realize.<br>
+        E que eu possa estar presente em muitos aniversários seus my darling. ❤️🪷
+    </p>
+
+    <audio controls>
+        <source src="img/Floricienta.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+</div>
+
+<script>
+function criarCoracao() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(criarCoracao, 300);
+</script>
+
+</body>
+</html>
